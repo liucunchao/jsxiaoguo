@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			a {
+				text-decoration: none;
+				color: black;
+			}
+			/*头部开始*/
+			
+			.header {
+				width: 100%;
+				height: 60px;
+				background-color: #CCCCCC;
+			}
+			
+			.header .container {
+				width: 1000px;
+				height: 60px;
+				margin: 0 auto;
+				background-color: #Ccf;
+			}
+			
+			.header .container a {
+				float: left;
+				width: 200px;
+				height: 60px;
+				line-height: 60px;
+				text-align: center;
+			}
+			
+			.header .container a.active {
+				background-color: darkgray;
+				color: white;
+			}
+			
+			.header .container a:hover {
+				background-color: darkgray;
+				color: white;
+			}
+			/*头部结束*/
+			/*身体开始*/
+			
+			.body {
+				width: 100%;
+				height: 200px;
+				background: #DFFFDF;
+			}
+			
+			.body .item {
+				width: 100%;
+				height: 200px;
+				/*不展示*/
+				display: none;
+			}
+			/*身体结束*/
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function() {
+				//1.获取a标签
+				var links = document.getElementsByTagName("a");
+				var items = document.getElementsByClassName("item");
+				for(var i = 0; i < links.length; i++) {
+					//第一种方法
+					/*(function(i) {
+						links[i].onclick = function() {
+							//排它思想  
+							for(var j = 0; j < links.length; j++) {
+								//将所有的tab的active去掉
+								links[j].className = "";
+								//将所有的item隐藏
+								items[j].style.display = "none";
+							}
+							//给点击的tab添加active类
+							links[i].className = "active";
+							//将item展示
+							items[i].style.display = "block";
+						}
+					})(i)*/
+
+					//第二种方法
+					links[i].index = i;
+					links[i].onclick = function() {
+						//排它思想  
+						for(var j = 0; j < links.length; j++) {
+							//将所有的tab的active去掉
+							links[j].className = "";
+							//将所有的item隐藏
+							items[j].style.display = "none";
+						}
+						//给点击的tab添加active类
+						links[this.index].className = "active";
+						//将item展示
+						items[this.index].style.display = "block";
+					}
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<!--头部开始-->
+		<div class="header">
+			<div class="container">
+				<a href="#" class="active">首页</a>
+				<a href="#">首页</a>
+				<a href="#">首页</a>
+				<a href="#">首页</a>
+				<a href="#">首页</a>
+			</div>
+		</div>
+		<!--头部结束-->
+
+		<!--身体开始-->
+		<div class="body">
+			<div class="item" style="display: block;">1111111111</div>
+			<div class="item">2222222222</div>
+			<div class="item">3333333333</div>
+			<div class="item">4444444444</div>
+			<div class="item">5555555555</div>
+		</div>
+		<!--身体结束-->
+
+	</body>
+
+</html>

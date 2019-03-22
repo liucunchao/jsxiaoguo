@@ -1,0 +1,22 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.show{
+	width: 360px;
+	height: 431px;
+	margin: 100px auto;
+	border: 1px solid black;
+}
+.show_up{
+	width: 360px;
+	height: 360px;
+	border-bottom:1px solid black;
+	background-image: url(../img/01big.jpg);
+}
+img{
+	width: 70px;
+	padding-left: 1px;
+	padding-right: 1px;
+	float: left;
+}
